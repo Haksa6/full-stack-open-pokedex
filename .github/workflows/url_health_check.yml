@@ -11,15 +11,16 @@ jobs:
   simple_url_healthcheck:
     runs-on: ubuntu-18.04
     steps:
-      uses: jtalk/url-health-check-action@v2
-      with:
-        # Check the following URLs one by one sequentially
-        url: https://pokedexhaksa.herokuapp.com/health | https://pokedexhaksa.herokuapp.com
-        # Follow redirects, or just report success on 3xx status codes
-        follow-redirect: no # Optional, defaults to "no"
-        # Fail this action after this many failed attempts
-        max-attempts: 3 # Optional, defaults to 1
-        # Delay between retries
-        retry-delay: 5s # Optional, only applicable to max-attempts > 1
-        # Retry all errors, including 404. This option might trigger curl upgrade.
-        retry-all: no # Option0p+o 
+      - name: Check url 
+        uses: jtalk/url-health-check-action@v2
+        with:
+          # Check the following URLs one by one sequentially
+          url: https://pokedexhaksa.herokuapp.com/health | https://pokedexhaksa.herokuapp.com
+          # Follow redirects, or just report success on 3xx status codes
+          follow-redirect: no # Optional, defaults to "no"
+          # Fail this action after this many failed attempts
+          max-attempts: 3 # Optional, defaults to 1
+          # Delay between retries
+          retry-delay: 5s # Optional, only applicable to max-attempts > 1
+          # Retry all errors, including 404. This option might trigger curl upgrade.
+          retry-all: no # Option0p+o 
